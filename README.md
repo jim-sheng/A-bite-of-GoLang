@@ -333,7 +333,7 @@ func sum(numbers ...int) int {
 #### 1、指针不能运算
 
 比如想对指针做加1运算，Go语言是不支持的；当然要是想在函数内部改变函数外面的变量的值，通过指针是如何实现的呢，如下图所示
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15235210375685.jpg)
+![](./media/15231955282344/15235210375685.jpg)
 
 #### 2、Go语言只有值传递
 
@@ -476,13 +476,13 @@ s2 := s1[3:5]
 
 答案是可以，上述就是s1、s2的值，是不是跟你想的有点不一样。那么这又是为什么呢？
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15235352570650.jpg)
+![](./media/15231955282344/15235352570650.jpg)
 
 这就是为什么能把 6 这个值取出来的原因，因为slice是array的底层的一个view，是不是依然还是有点懵，具体又是如何实现的呢？
 
 #### 4、Slice实现
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15236013496891.jpg)
+![](./media/15231955282344/15236013496891.jpg)
 
 从上图是不是大体明白为什么上面那个例子能把6取出来了；看到这里大家也能大体明白Slice内部的ptr、len、cap是什么意思，ptr指向slice的开头的元素，len是slice的长度，cap代表底层的array从ptr开始到结束的长度，Slice是可以向后扩展的，但是不能向前扩展，所以只要不超过cap的长度slice都是可以扩展的，但是常规的s[i]取值是不可以超过len的。
 用一个例子来简单的理解一下
@@ -660,7 +660,7 @@ if ok {
 
 delete函数，就可以直接删除指定的key的值
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15238684220308.jpg)
+![](./media/15231955282344/15238684220308.jpg)
 
 这是Go语言的官方文档，不难理解比如要删除上面的 map1 的 city 的值
 
@@ -954,7 +954,7 @@ gopm get -g url
 
 很多语言都有duck typing的概念， 用一个简单的例子来描述一下这个概念
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15240576798805.jpg)
+![](./media/15231955282344/15240576798805.jpg)
 
 大黄鸭是鸭子么？这个答案是要看基于什么角度来看，从生物角度来看，那它当然不是鸭子，连基本的生命都没有；但是从duck typing的角度来看它就是一个鸭子，因为它外部长得像鸭子，通俗点概括一下duck typing的概念就是：描述事物的外部行为而非内部结构。
 
@@ -1083,9 +1083,9 @@ fmt.Printf("\n %T %v \n", r, r)
 
 我们可以看到是一个指针，所以我们一般用到接口的指针，因为它的肚子里含有一个指针，通常我们会说“**接口变量自带指针**”，那我们现在用两个图来总结一下上面的概念
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15244909642810.jpg)
+![](./media/15231955282344/15244909642810.jpg)
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15244910308713.jpg)
+![](./media/15231955282344/15244910308713.jpg)
 
 概括为：接口变量里面可以是实现者的类型和实现者的值，或者是接口类型里面可以是实现者的类型和实现者的指针，同时指向实现者。
 
@@ -1323,7 +1323,7 @@ func main() {
 		return sum
 	}` 称为函数体，整个就叫做一个闭包。用一张图来概括就是：
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15245726261451.jpg)
+![](./media/15231955282344/15245726261451.jpg)
 
 #### 2、“正统”函数式编程
 
@@ -1552,7 +1552,7 @@ func main() {
 }
 ```
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15248139076584.jpg)
+![](./media/15231955282344/15248139076584.jpg)
 
 一个完整的事例就演示到这边，比如常见的 Open／Close、Lock／Unlock这些成对出现的都可以使用 *defer*
 
@@ -1726,7 +1726,7 @@ func main() {
 
 因为在GOPATH下有一个 `demo.txt` 文件，浏览器输入一下地址 `http://localhost:2872/list/demo.txt` ,浏览器正确输出结果
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15254248021435.jpg)
+![](./media/15231955282344/15254248021435.jpg)
 
 万一我访问一个不存在的文件呢？会得到什么样的结果，比如我现在访问 `http://localhost:2872/list/demo.txts` GOPATH目录下没有demo.txts文件，自然你会想到会panic一个错误
 
@@ -1748,7 +1748,7 @@ net/http.serverHandler.ServeHTTP(0xc420089110, 0x12d1420, 0xc42010e000, 0xc42010
 
 从上面的部分的报错信息来看，
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15254260616558.jpg)
+![](./media/15231955282344/15254260616558.jpg)
 
 相关的错误信息都是 `/usr/local/Cellar/go/1.10.2/libexec/src/net/http/server.go` 的 `serve` 函数报出的，具体是哪一步报出的我就不细说了，有兴趣的可以自己按照例子自己查阅相关的源码，说到这那错误统一处理又是如何处理呢？
 我们先把第一个panic替换成
@@ -1765,7 +1765,7 @@ if err != nil {
 
 我们再来访问上述地址
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15254277514513.jpg)
+![](./media/15231955282344/15254277514513.jpg)
 
 相比之前，提示稍微友好一点了，但是这对用户来讲还是不合适的，直接将程序内部错误信息输出给用户有些欠妥。我们可以包装成一个外部的Error，首先我们先定义一个函数appHandler, 返回一个error
 
@@ -1824,7 +1824,7 @@ if err != nil {
 
 `http.HandleFunc` 的第二个参数我们需要改为 `errWrapper` 同时将原来的函数作为参数传进去，当然这个函数为了代码的可读性应该单独抽离出来，相应的返回直接返回error就可以了，这时候我们再去访问之前的一个不存在的URL
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15256970597886.jpg)
+![](./media/15231955282344/15256970597886.jpg)
 
 这时候的错误就明显友好了很多，讲到这就是一个简单的统一错误处理的思路。
 
@@ -1978,7 +1978,7 @@ FAIL	shengguocun.com/functional/calculator	0.006s
 
 用IDE的同学我们会发现点击 `Run Test` 按钮的时候还有一个 with coverage 的选项
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15257609082735.jpg)
+![](./media/15231955282344/15257609082735.jpg)
 
 ```
 === RUN   TestAdd
@@ -1991,7 +1991,7 @@ Process finished with exit code 0
 
 这就是一个测试用例的代码覆盖率的结果。
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15257788675876.jpg)
+![](./media/15231955282344/15257788675876.jpg)
 
 IDE这块有详细的覆盖率报告，可以看到左侧的绿色就是代码的覆盖的范围，右侧有详细的每个文件的覆盖率。当然除了IDE之外命令行也是同样支持的
 
@@ -2010,7 +2010,7 @@ sheng$ go tool cover -html=a.out
 
 运行上面的命令，就会展现一个下面的静态页面
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15257797357515.jpg)
+![](./media/15231955282344/15257797357515.jpg)
 
 这就是一个详细的覆盖率报告
 
@@ -2185,7 +2185,7 @@ Failed to execute dot. Is Graphviz installed? Error: exec: "dot": executable fil
 
 出现上述报错的，是因为Graphviz没有安装，安装好了之后再敲入web会生成一个SVG文件,用浏览器打开它
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15258608481013.jpg)
+![](./media/15231955282344/15258608481013.jpg)
 
 一张图可以很明显的表现出哪边花的时间多哪边花的时间少，当然也可以从框框的大小来做判断，我们需要优化比较大的框框的部分。上述的代码因为太过于简单，大家可以试着用自己写的代码进行性能分析。
 
@@ -2394,7 +2394,7 @@ sheng$ godoc -http :6060
 
 打开浏览器，输入 http://localhost:6060
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15258650494831.jpg)
+![](./media/15231955282344/15258650494831.jpg)
 
 完整的Web版的Go语言的文档就可以使用了。当然不单单包含系统函数，同时还包含我们自己写的函数的文档，现在我们就演示一下
 
@@ -2408,7 +2408,7 @@ func Add(a, b int32) int32 {
 
 我们在函数前面加上了注释，这是我们重新启动 `godoc -http :6060` 我们会发现
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15258654981479.jpg)
+![](./media/15231955282344/15258654981479.jpg)
 
 相关的注释已经加上了。Go语言除此之外还提供了写示例代码的方法
 
@@ -2439,7 +2439,7 @@ Process finished with exit code 1
 
 我们再把正确的输出贴到上面的输出中，重启godoc
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15258664478886.jpg)
+![](./media/15231955282344/15258664478886.jpg)
 
 这时候完整的示例代码就已经生成到文档中了。
 
@@ -2544,7 +2544,7 @@ func main() {
 
 在运行之前，可以想一下会输出什么呢? 什么也没有输出，进入了死循环。
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15259278282666.jpg)
+![](./media/15231955282344/15259278282666.jpg)
 
 上图是我的活动监视器的截图，因为是4核的机器，几乎全部占满了。退不出的原因是因为Goroutine a[i] 交不出控制权，没有yield出去，同时main函数也是一个goroutine，因为没人交出控制权，所以下面的sleep永远也不会执行。
 那我该如何交出控制权呢？我们可以做一个IO操作可以交出控制权，当然也可以手动交出控制权
@@ -2672,11 +2672,11 @@ Goroutine 6 (running) created at:
 
 首先我们先看一张普通函数和协程的对比图
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15259316982938.jpg)
+![](./media/15231955282344/15259316982938.jpg)
 
 普通函数main函数和work函数都运行在一个线程里面，main函数在等work函数执行完才能执行其他的操作。可以看到普通函数 main 函数和 work 函数是单向的，但是发现协程的 main 和 work 是双向通道的，控制权可以在work也可以在main，不需要像普通函数那样等work函数执行完才交出控制权。协程中main和work可能执行在一个线程中，有可能执行在多个线程中。
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15259325535349.jpg)
+![](./media/15231955282344/15259325535349.jpg)
 
 上图就是Go语言的协程， 首先下面会有一个调度器，负责调度协程，有些是一个goroutine放在一个线程里面，有的是两个，有的是多个，这些我们都不需要关注。
 
@@ -2710,7 +2710,7 @@ Goroutine 6 (running) created at:
 
 #### Channel
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15259339991866.jpg)
+![](./media/15231955282344/15259339991866.jpg)
 
 我们可以开很多个goroutine，goroutine和goroutine之间的双向通道就是channel。
 首先我们先来介绍一下channel的用法
@@ -3363,7 +3363,7 @@ func main() {
 
 上面我们都用的是 **DefaultClient** ，我们也可以自己创建 client， 首先我们先看一下 Client 内部都有些什么
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15260240788691.jpg)
+![](./media/15231955282344/15260240788691.jpg)
 
 查看源码我们发现有一个 `CheckRedirect` ，我们发现这是一个检查重定向的函数。那我们就用它做一下演示
 
@@ -3520,11 +3520,11 @@ func main() {
 
 还是一样的代码，只不过import多了一个 `import _ "net/http/pprof"` , 为什么会多一个下划线呢？因为代码没有使用到，会报错，加一个下划线就可以了。重启代码，我们就可以访问 http://localhost:2872/debug/pprof/ 了
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15260254493162.jpg)
+![](./media/15231955282344/15260254493162.jpg)
 
 里面的 stacktrace 都可以查看到
 
-![](https://nos.netease.com/hi-163-common/media/15231955282344/15260260333285.jpg)
+![](./media/15231955282344/15260260333285.jpg)
 
 我们可以查看 pprof 的源码，继续查看它的其他的使用方式
 
